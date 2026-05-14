@@ -1,0 +1,1 @@
+export function getFormatedNumber(num: number): string {return num.toString()}
