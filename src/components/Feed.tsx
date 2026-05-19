@@ -50,7 +50,7 @@ function Feed({ posts }: FeedProps ) {
 
   return (
     <div className="feed">
-        <h2>Trending</h2>
+        <h2>TRENDING</h2>
         <section className="posts" ref={gridRef}>
             {
                 posts?.map((post: PostType, index: number) => (

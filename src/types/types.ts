@@ -14,7 +14,7 @@ export interface PostType {
 export interface Story {
     username: string,
     userImage: string,
-    isBestFriend: boolean
+    isCloseFriend: boolean
 }
 
 export interface StoriesProps {

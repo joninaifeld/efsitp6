@@ -5,12 +5,12 @@ function Stories({ stories }: StoriesProps) {
 
     return (
         <div className="stories">
-            <h2>Stories</h2>
+            <h2>STORIES</h2>
             <section className="storiesContainer">
                 {
                     stories?.map((story: Story, index: number) => (
                         <div key={index} className="story">
-                            <div className={`pfpContainer hasStory ${story.isBestFriend ? 'bf' : ''}`}>
+                            <div className={`pfpContainer hasStory ${story.isCloseFriend ? 'cf' : ''}`}>
                                 <img src={story.userImage} alt={`${story.username}'s profile picture`} />
                             </div>
                             <span>@{story.username}</span>

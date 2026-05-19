@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import Stories from "./components/Stories"
 import data from './data/default_user.json'
+import "./styles/App.css"
 
 function App() {
     const [posts, setPosts] = useState(null)
@@ -13,19 +14,22 @@ function App() {
     useEffect(() => {
         api.get('/images/search?limit=10')
             .then(response => {
-                const fetchedPosts = response?.data?.map((item: any) => ({
+                const data = response.data
+
+                const fetchedPosts = data?.map((item: any) => ({
                     username: `user_name`,
-                    userImage: `https://i.pinimg.com/736x/1c/8b/0e/1c8b0e5a9d2f3c7a4e5b6c8d9f0a1b.jpg`,
+                    userImage: data[Math.floor(Math.random() * data.length)].url,
                     postImage: item.url,
                     caption: `miaouu`,
                     likes: Math.floor(Math.random() * 1000),
                     comments: []
                 }))
-                const fetchedStories = response?.data?.map((item: any) => ({
+                const fetchedStories = data.toReversed()?.map((item: any) => ({
                     username: `user_name`,
                     userImage: item.url,
-                    isBestFriend: Math.random() < 0.5
+                    isCloseFriend: Math.random() < 0.5
                 }))
+                
                 setPosts(fetchedPosts)
                 setStories(fetchedStories)
             })
@@ -34,9 +38,9 @@ function App() {
     return (
         <div>
             <Header />
-            <div>
+            <div className="site">
                 <Navbar user={data.logged_user} />
-                <div>
+                <div className="allFeed">
                     <Stories stories={stories} />
                     <Feed posts={posts} />
                 </div>

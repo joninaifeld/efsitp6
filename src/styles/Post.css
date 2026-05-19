@@ -1,1 +1,12 @@
 /* Styles for Post component */
+.post {
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+}
+
+.post img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

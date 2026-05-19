@@ -9,24 +9,24 @@
         "story": {
             "username": "dami.dami.dami",
             "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isBestFriend": false
+            "isCloseFriend": false
         }
     },
     "stories": [
         {
             "username": "jona.jojo",
             "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isBestFriend": true
+            "isCloseFriend": true
         },
         {
             "username": "jarabez",
             "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isBestFriend": false
+            "isCloseFriend": false
         },
         {
             "username": "choe_reinara",
             "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isBestFriend": false
+            "isCloseFriend": false
         }
     ]
 }

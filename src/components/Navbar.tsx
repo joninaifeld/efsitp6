@@ -1,5 +1,6 @@
 import type { NavbarProps } from "../types/types.ts"
 import { getFormatedNumber } from "../utils/helpers.ts"
+import "../styles/Navbar.css"
 
 function Navbar({ user }: NavbarProps) {
 
