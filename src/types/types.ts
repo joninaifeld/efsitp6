@@ -1,9 +1,8 @@
 export interface FeedProps {
-    posts: Post[]
+    posts: PostType[]
 }
 
-export interface Post {
-    id: number,
+export interface PostType {
     username: string,
     userImage: string,
     postImage: string,
@@ -14,7 +13,8 @@ export interface Post {
 
 export interface Story {
     username: string,
-    userImage: string
+    userImage: string,
+    isBestFriend: boolean
 }
 
 export interface StoriesProps {
@@ -22,7 +22,7 @@ export interface StoriesProps {
 }
 
 export interface PostProps {
-    data: Post
+    data: PostType
 }
 
 export interface NavbarProps {

@@ -1,0 +1,5 @@
+/* Styles for App container */
+.app {
+  min-height: 100vh;
+  background: var(--bg, #f5f7fb);
+}

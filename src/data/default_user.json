@@ -1,0 +1,32 @@
+{
+    "logged_user": {
+        "username": "dami.dami.dami",
+        "displayName": "dami",
+        "verified": true,
+        "followers": 100,
+        "likes": 1000,
+        "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
+        "story": {
+            "username": "dami.dami.dami",
+            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
+            "isBestFriend": false
+        }
+    },
+    "stories": [
+        {
+            "username": "jona.jojo",
+            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
+            "isBestFriend": true
+        },
+        {
+            "username": "jarabez",
+            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
+            "isBestFriend": false
+        },
+        {
+            "username": "choe_reinara",
+            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
+            "isBestFriend": false
+        }
+    ]
+}
