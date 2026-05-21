@@ -8,12 +8,12 @@ function Stories({ stories }: StoriesProps) {
             <h2>STORIES</h2>
             <section className="storiesContainer">
                 {
-                    stories?.map((story: Story, index: number) => (
+                    [...stories/* , ...stories */]?.map((story: Story, index: number) => (
                         <div key={index} className="story">
                             <div className={`pfpContainer hasStory ${story.isCloseFriend ? 'cf' : ''}`}>
                                 <img src={story.userImage} alt={`${story.username}'s profile picture`} />
                             </div>
-                            <span>@{story.username}</span>
+                            <span className="username">{story.username}</span>
                         </div>
                     ))
                 }

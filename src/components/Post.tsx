@@ -5,11 +5,11 @@ function Post({ data }: PostProps) {
 
     return (
         <div className="post">
-            <img src={data.postImage} alt="Post image" />
+            <img className="postImg" src={data.postImage} alt="Post image" />
             <footer>
                 <div className="user">
                     <img src={data.userImage} alt={`${data.username}'s profile picture`} />
-                    <span>{data.username}</span>
+                    <span className="username">{data.username}</span>
                 </div>
                 <div className="postActions">
                     <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-heart">

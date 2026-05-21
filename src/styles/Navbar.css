@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 80px;
+    width: 400px;
 }
 
 .navbar .user{
@@ -11,10 +12,102 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+}
+
+.displayNameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
+    position: relative;
+}
+
+.displayNameContainer span {
+    font-size: 1.55rem;
+    font-weight: 600;
+}
+
+.displayNameContainer svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--verification);
+    position: absolute;
+    right: -30px;
 }
 
 .navbar .pfpContainer {
   width: 200px;
   height: 200px;
+}
+
+.navbar .username {
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+}
+
+.userStats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.userStats span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--tag);
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.userStats svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--white);
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.navActions button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 100%;
+    border: none;
+    position: relative;
+    background-color: transparent;
+    border-radius: 6px;
+    color: var(--white);
+    padding: 10px 0 10px 25px;
+    font-size: 1.55rem;
+}
+
+.navActions button svg {
+    width: 38px;
+    height: 38px;
+}
+
+.navActions button.active {
+    background-color: var(--btnBg);
+}
+
+.navActions button.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(70deg, #e6563c, #dc2743, #cc2366, #bc1888, #0066FF);
 }

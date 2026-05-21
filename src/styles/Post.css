@@ -3,10 +3,44 @@
   border-radius: 12px;
   overflow: hidden;
   display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.post img {
+.postImg {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
+
+.post footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  
+}
+
+.post footer .user {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.post footer .user img{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.post footer .postActions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-right: 8px;
+}
+

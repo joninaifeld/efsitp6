@@ -1,15 +1,15 @@
 .site {
-    display: flex;
-    justify-content: flex-start;
-    height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .allFeed {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
 }
 
 .pfpContainer {
@@ -31,8 +31,8 @@
 .pfpContainer.hasStory::before {
   content: "";
   position: absolute;
-  width: 97px;
-  height: 97px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
   animation: rotate 4s linear infinite;
@@ -41,4 +41,14 @@
 
 .pfpContainer.hasStory.cf::before {
   background: linear-gradient(45deg, #00ff00, #00cc00, #009900, #006600, #003300);
+}
+
+.username {
+  font-size: 0.85rem;
+  font-weight: 250;
+  opacity: 0.8;
+}
+
+.username::before {
+  content: "@";
 }
