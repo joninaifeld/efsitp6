@@ -1,8 +1,78 @@
-/* Styles for PostModal component */
-.post-modal {
+.modalContainer {
   position: fixed;
   inset: 0;
+  background-color: rgba(13, 29, 44, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  place-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.postModal {
   display: flex;
   align-items: center;
+  gap: 0;
+  background-color: var(--tag);
+  border-radius: 10px;
+  width: 65%;
+  height: 70%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.postModal .imageContainer {
+  height: 100%;
+  width: 40%;
+  background-color: black;
+}
+
+.postModal .imageContainer img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.postModalRight {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 60%;
+  height: 100%;
+  gap: 20px;
+  align-items: center;
   justify-content: center;
+}
+
+.postModalRight header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.postModalProfile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.postModalRight header .title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.postModalRight header .title h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.postModalRight header .title {
+  font-size: 14px;
+  
 }

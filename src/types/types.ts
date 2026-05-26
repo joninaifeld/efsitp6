@@ -1,5 +1,6 @@
 export interface FeedProps {
-    posts: PostType[]
+    posts: PostType[],
+    setDisplayingPost?: (state: { displaying: boolean, post: PostType | null }) => void
 }
 
 export interface PostType {
@@ -8,7 +9,8 @@ export interface PostType {
     postImage: string,
     caption: string,
     likes: number,
-    comments: Comment[]
+    comments: Comment[],
+    year: string
 }
 
 export interface Story {
@@ -22,7 +24,8 @@ export interface StoriesProps {
 }
 
 export interface PostProps {
-    data: PostType
+    data: PostType,
+    setDisplayingPost?: (state: displayingPostType) => void
 }
 
 export interface NavbarProps {
@@ -35,4 +38,13 @@ export interface NavbarProps {
         followers: number,
         story: Story | null
     }
+}
+
+export interface displayingPostType {
+    displaying: boolean,
+    post: PostType | null
+}
+
+export interface PostModalProps {
+    data: PostType
 }

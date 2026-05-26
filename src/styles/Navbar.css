@@ -60,7 +60,7 @@
     justify-content: center;
     gap: 5px;
     background-color: var(--tag);
-    padding: 6px;
+    padding: 6px 10px 6px 10px;
     border-radius: 4px;
     font-size: 1.2rem;
 }
@@ -91,8 +91,10 @@
     background-color: transparent;
     border-radius: 6px;
     color: var(--white);
-    padding: 10px 0 10px 25px;
+    padding: 12px 0 12px 25px;
     font-size: 1.55rem;
+    font-weight: 300;
+    font-family: "Stack Sans Text", sans-serif;
 }
 
 .navActions button svg {
@@ -109,5 +111,7 @@
     position: absolute;
     left: 0;
     height: 100%;
-    background: linear-gradient(70deg, #e6563c, #dc2743, #cc2366, #bc1888, #0066FF);
+    background: linear-gradient(90deg, #cc2366, #bc1888, #0066FF);
+    width: 6px;
+    border-radius: 8px;
 }

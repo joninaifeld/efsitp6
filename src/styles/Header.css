@@ -56,7 +56,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 5px;
-    background: var(--selected);
+    background: var(--tag);
     padding: 5px 10px;
     border-radius: 4px;
 }

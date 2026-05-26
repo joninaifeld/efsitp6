@@ -1,10 +1,10 @@
 import type { PostProps } from "../types/types"
 import "../styles/Post.css"
 
-function Post({ data }: PostProps) {
+function Post({ data, setDisplayingPost }: PostProps) {
 
     return (
-        <div className="post">
+        <div className="post" onClick={() => setDisplayingPost && setDisplayingPost({ displaying: true, post: data })}>
             <img className="postImg" src={data.postImage} alt="Post image" />
             <footer>
                 <div className="user">
