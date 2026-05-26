@@ -11,22 +11,5 @@
             "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
             "isCloseFriend": false
         }
-    },
-    "stories": [
-        {
-            "username": "jona.jojo",
-            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isCloseFriend": true
-        },
-        {
-            "username": "jarabez",
-            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isCloseFriend": false
-        },
-        {
-            "username": "choe_reinara",
-            "userImage": "https://cdn2.thecatapi.com/images/2iu.jpg",
-            "isCloseFriend": false
-        }
-    ]
+    }
 }
