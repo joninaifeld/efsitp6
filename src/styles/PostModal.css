@@ -10,6 +10,26 @@
   backdrop-filter: blur(3px);
 }
 
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Stack Sans Text", sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.closeButton svg {
+  width: 28px;
+  height: 28px;
+}
+
 .postModal {
   display: flex;
   align-items: center;
@@ -19,6 +39,7 @@
   width: 65%;
   height: 70%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .postModal .imageContainer {
@@ -36,12 +57,10 @@
 .postModalRight {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
   width: 60%;
   height: 100%;
   gap: 20px;
-  align-items: center;
-  justify-content: center;
 }
 
 .postModalRight header {
@@ -50,6 +69,10 @@
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(245, 245, 245, 0.205);
 }
 
 .postModalProfile {
@@ -64,15 +87,139 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
 }
 
 
 .postModalRight header .title h2 {
   font-size: 18px;
   font-weight: 600;
+  width: 100%;
+  margin: 0;
 }
 
-.postModalRight header .title {
+.postModalRight header .title p {
   font-size: 14px;
-  
+  width: 100%;
+  margin: 0;
+}
+
+.postModal main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.postModal footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 2px solid rgba(245, 245, 245, 0.205);
+}
+
+.postModal footer .mainInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  padding: 0 20px 0 20px;
+}
+
+.postModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.postModalActions .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+}
+
+.postModalActions svg {
+  width: 36px;
+  height: 36px;
+}
+
+.likedBy {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: 300;
+}
+
+.likedBy span {
+  font-weight: 500;
+}
+
+.addCommentSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+  border-top: 2px solid rgba(245, 245, 245, 0.205);
+  padding: 20px 20px 20px 20px;
+}
+
+.addCommentSection svg {
+  width: 36px;
+  height: 36px;
+}
+
+.addCommentSection input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: var(--tag);
+  border: none;
+  color: var(--white);
+  font-size: 1rem;
+  font-family: "Stack Sans Text", sans-serif;
+}
+
+.addCommentSection input::placeholder {
+  color: var(--white);
+  opacity: 0.7;
+}
+
+.addCommentSection button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: var(--verification);
+  border: none;
+  color: var(--white);
+  font-size: 1rem;
+  font-family: "Stack Sans Text", sans-serif;
+}
+
+.addCommentSection button:hover {
+  background-color: var(--verification);
+  opacity: 0.9;
+}
+
+.addCommentSection button:active {
+  background-color: var(--verification);
+  opacity: 0.8;
+}
+
+.addCommentSection button:disabled {
+  background-color: var(--verification);
+  opacity: 0.5;
+  cursor: not-allowed;
 }

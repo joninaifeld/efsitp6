@@ -56,7 +56,7 @@ function App() {
                 </div>
             </div>
             { displayingPost.displaying && 
-                <PostModal data={displayingPost.post} />
+                <PostModal data={displayingPost.post} setDisplayingPost={setDisplayingPost} />
             }
         </>
     )

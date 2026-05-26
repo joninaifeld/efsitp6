@@ -1,8 +1,15 @@
+import type { Dispatch, SetStateAction } from "react"
+
 export interface FeedProps {
     posts: PostType[],
-    setDisplayingPost?: (state: { displaying: boolean, post: PostType | null }) => void
+    setDisplayingPost?: Dispatch<SetStateAction<displayingPostType>>
 }
 
+
+export interface Comment {
+    text: string,
+    username: string
+}
 export interface PostType {
     username: string,
     userImage: string,
@@ -25,7 +32,7 @@ export interface StoriesProps {
 
 export interface PostProps {
     data: PostType,
-    setDisplayingPost?: (state: displayingPostType) => void
+    setDisplayingPost?: Dispatch<SetStateAction<displayingPostType>>
 }
 
 export interface NavbarProps {
