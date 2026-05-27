@@ -9,14 +9,18 @@ import "./styles/App.css"
 import PostModal from "./components/PostModal"
 import type { displayingPostType } from "./types/types"
 import commsApi from "./services/comms-api"
+import Profile from "./components/Profile"
 
 function App() {
     const [posts, setPosts] = useState(null)
     const [stories, setStories] = useState(null)
     const [displayingPost, setDisplayingPost] = useState({ displaying: false, post: null } as displayingPostType)
+    const [loading, setLoading] = useState(true)
+    const [showProfile, setShowProfile] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             const responseForPosts = await caasApi.get('/images/search?limit=10')
             const dataForPosts = responseForPosts.data || []
             const responseForUsers = await caasApi.get('/images/search?limit=10')
@@ -48,6 +52,7 @@ function App() {
             
             setPosts(fetchedPosts)
             setStories(fetchedStories)
+            setLoading(false)
         }
         fetchData()
     }, [])
@@ -57,11 +62,19 @@ function App() {
             <div>
                 <Header />
                 <div className="site">
-                    <Navbar user={data.logged_user} />
-                    <div className="allFeed">
-                        <Stories stories={stories} />
-                        <Feed posts={posts} setDisplayingPost={setDisplayingPost} />
-                    </div>
+                    <Navbar user={data.logged_user} showProfile={showProfile} setShowProfile={setShowProfile} />
+                    { !showProfile
+                        ? <> 
+                            { !loading
+                                ? <div className="allFeed">
+                                    <Stories stories={stories || []} />
+                                    <Feed posts={posts || []} setDisplayingPost={setDisplayingPost} />
+                                </div>
+                                : <div className="loading"><p>Loading...</p></div>
+                            }
+                        </>
+                        : <Profile user={data.logged_user} />
+                    }
                 </div>
             </div>
             { displayingPost.displaying && 

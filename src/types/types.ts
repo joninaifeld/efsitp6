@@ -32,7 +32,7 @@ export interface StoriesProps {
 }
 
 export interface PostProps {
-    data: PostType,
+    data: PostType | null,
     setDisplayingPost?: Dispatch<SetStateAction<displayingPostType>>
 }
 
@@ -45,7 +45,9 @@ export interface NavbarProps {
         likes: number,
         followers: number,
         story: Story | null
-    }
+    },
+    showProfile: boolean,
+    setShowProfile: Dispatch<SetStateAction<boolean>>
 }
 
 export interface displayingPostType {
@@ -55,4 +57,16 @@ export interface displayingPostType {
 
 export interface PostModalProps {
     data: PostType
+}
+
+export interface ProfileProps {
+    user: {
+        username: string,
+        displayName: string,
+        verified: boolean,
+        userImage: string,
+        likes: number,
+        followers: number,
+        story: Story | null
+    }
 }
