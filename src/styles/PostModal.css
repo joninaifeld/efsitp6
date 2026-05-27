@@ -26,19 +26,19 @@
 }
 
 .closeButton svg {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
 .postModal {
   display: flex;
   align-items: center;
   gap: 0;
-  background-color: var(--tag);
+  background-color: var(--bg);
   border-radius: 10px;
   width: 65%;
   height: 70%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px var(--bg);
   overflow: hidden;
 }
 
@@ -57,10 +57,9 @@
 .postModalRight {
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
   width: 60%;
   height: 100%;
-  gap: 20px;
+  gap: 5px;
 }
 
 .postModalRight header {
@@ -83,7 +82,15 @@
   font-weight: 200;
 }
 
-.postModal .noComments {
+.noComments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.noComments p {
   font-style: italic;
   font-weight: 300;
 }
@@ -93,6 +100,7 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  aspect-ratio: 1;
 }
 
 .postModalRight header .title {
@@ -104,7 +112,7 @@
 }
 
 
-.postModalRight header .title h2 {
+.postModalRight h2 {
   font-size: 18px;
   font-weight: 600;
   width: 100%;
@@ -120,13 +128,12 @@
 .postModal main {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 25px;
   flex: 1;
   height: 100%;
   overflow-y: auto;
-  justify-content: center;
   align-items: center;
-  padding: 0 20px 0 20px;
+  padding: 20px;
 }
 
 .postModal footer {
@@ -148,7 +155,7 @@
   padding: 0 20px 0 20px;
 }
 
-.postModalActions {
+.postModal .postActions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -156,7 +163,7 @@
   width: 100%;
 }
 
-.postModalActions .right {
+.postModal .postActions .right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -164,19 +171,9 @@
   width: 100%;
 }
 
-.postModalActions svg {
+.postModal .postActions svg {
   width: 36px;
   height: 36px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.postModalActions .likeButton:hover {
-  fill: var(--red) !important;
-}
-
-.postModalActions svg:hover {
-  fill: rgba(245, 245, 245, 0.2);
 }
 
 .likedBy {
@@ -209,7 +206,7 @@
   flex: 1;
   padding: 8px;
   border-radius: 20px;
-  background-color: var(--tag);
+  background-color: transparent;
   border: none;
   color: var(--white);
   font-size: 1rem;
@@ -246,4 +243,51 @@
   background-color: var(--verification);
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+
+.comment{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+  position: relative;
+}
+
+.comment .body p {
+  font-size: 14px;
+  width: 100%;
+  margin: 0;
+  font-weight: 200;
+}
+
+.comment .body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.comment .commentStats {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.comment .commentStats span {
+  font-size: 0.85rem;
+  font-weight: 200;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.comment .likeButton{
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
 }

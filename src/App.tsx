@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import api from "./services/api"
+import caasApi from "./services/caas-api"
 import Feed from "./components/Feed"
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
@@ -8,6 +8,7 @@ import data from './data/default_user.json'
 import "./styles/App.css"
 import PostModal from "./components/PostModal"
 import type { displayingPostType } from "./types/types"
+import commsApi from "./services/comms-api"
 
 function App() {
     const [posts, setPosts] = useState(null)
@@ -16,25 +17,33 @@ function App() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const responseForPosts = await api.get('/images/search?limit=10')
+            const responseForPosts = await caasApi.get('/images/search?limit=10')
             const dataForPosts = responseForPosts.data || []
-            const responseForUsers = await api.get('/images/search?limit=10')
+            const responseForUsers = await caasApi.get('/images/search?limit=10')
             const dataForUsers = (responseForUsers.data || [])?.filter((item: any) => !item.url.endsWith('.gif'))
-            
+            const responseForComments = await commsApi.get('/comments?limit=10')
+            const dataForComments = responseForComments?.data?.comments
+            const fetchedComments = dataForComments.map((item: any, index: number) => ({
+                text: item.body,
+                username: item.user.username,
+                likes: item.likes,
+                userImage: dataForUsers[dataForUsers[index] ? index : Math.floor(Math.random() * dataForUsers.length)].url
+            })) || []
+
             const fetchedPosts = dataForPosts?.map((item: any) => ({
                 username: `user_name`,
                 userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url,
                 postImage: item.url,
-                caption: `miaouu`,
+                caption: `miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu`,
                 likes: Math.floor(Math.random() * 1000),
-                comments: [],
+                comments: fetchedComments,
                 year: `${Math.floor(Math.random() * 5) + 2019}`
             }))
             
             const fetchedStories = dataForUsers?.map((item: any) => ({
                 username: `user_name`,
                 userImage: item.url,
-                isCloseFriend: Math.random() < 0.5
+                isCloseFriend: Math.random() > 0.7
             }))
             
             setPosts(fetchedPosts)

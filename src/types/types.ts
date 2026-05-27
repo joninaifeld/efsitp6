@@ -5,10 +5,11 @@ export interface FeedProps {
     setDisplayingPost?: Dispatch<SetStateAction<displayingPostType>>
 }
 
-
 export interface Comment {
     text: string,
-    username: string
+    username: string,
+    userImage: string,
+    likes: number
 }
 export interface PostType {
     username: string,

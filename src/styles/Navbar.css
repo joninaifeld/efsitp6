@@ -93,12 +93,14 @@
     border: none;
     position: relative;
     background-color: transparent;
-    border-radius: 6px;
+    border-radius: 0 6px 6px 0;
     color: var(--white);
     padding: 12px 0 12px 25px;
     font-size: 1.55rem;
     font-weight: 300;
     font-family: "Stack Sans Text", sans-serif;
+    transition: all 0.15s;
+    user-select: none;
 }
 
 .navActions button svg {
@@ -108,6 +110,14 @@
 
 .navActions button.active {
     background-color: var(--btnBg);
+}
+
+.navActions button:hover {
+    background-color: var(--tag);
+}
+
+.navActions button:active {
+    filter: brightness(1.1);
 }
 
 .navActions button.active::after {

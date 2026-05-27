@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const api = axios.create({
+const caasApi = axios.create({
     baseURL: 'https://api.thecatapi.com/v1'
 })
 
-export default api
+export default caasApi
