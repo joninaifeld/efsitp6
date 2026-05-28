@@ -67,6 +67,16 @@ export interface ProfileProps {
         userImage: string,
         likes: number,
         followers: number,
-        story: Story | null
-    }
+        story: Story | null,
+        bio?: string,
+        following?: number,
+        postsCount?: number,
+        posts?: PostType[],
+    },
+    setDisplayingPost?: Dispatch<SetStateAction<displayingPostType>>
+}
+
+export interface FetchedUser {
+    username: string
+    userImage: string
 }
