@@ -1,6 +1,11 @@
 // ...existing code...
 # TP 6 EFSI
 
+## Instrucciones básicas de ejecución:
+- Realizar los siguientes comandos para ejecutar el proyecto:
+    - npm i
+    - npm run dev
+
 ## Figmas utilizados de inspiración en los diseños:
 - Base: https://www.figma.com/es-es/comunidad/file/1004033523744290376/instagram-modern-web-design
 - Modal: https://www.figma.com/design/4PsQ9rHaN1GdQLb9SHlwAR/Instagram---Web-UI--Recreated---Community-?node-id=1-2&p=f&t=b3FS8SYMHSobVemk-0
@@ -38,7 +43,7 @@
 
 ## Comunicación entre componentes con props
 - El componente padre pasa datos y callbacks por props.
-  - PostCard recibe post y onSelectPost(post) y solo llama al callback cuando el usuario hace click.
+    - PostCard recibe post y onSelectPost(post) y solo llama al callback cuando el usuario hace click.
 - El modal recibe el post seleccionado y callbacks para cerrar o modificar (onClose, onLike).
 
 ## Hooks usados y para qué
