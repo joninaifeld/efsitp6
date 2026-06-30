@@ -1,4 +1,3 @@
-// ...existing code...
 # TP 6 EFSI
 
 ## Instrucciones básicas de ejecución:
