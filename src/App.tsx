@@ -55,8 +55,8 @@ function App() {
                 }
                 }) || []
             
-            const fetchedStories = dataForUsers?.map((item: any) => {
-                const user: FetchedUser = fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || { username: `user_name`, userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url }
+            const fetchedStories = fetchedUsers?.map((user: any) => {
+                // const user: FetchedUser = fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || { username: `user_name`, userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url }
                 return {
                     username: user.username,
                     userImage: user.userImage,
