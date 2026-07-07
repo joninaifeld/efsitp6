@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "InstagramClone",
+    "slug": "efsitp6-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#000000",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.efsitp6.instagramclone"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000"
+      },
+      "package": "com.efsitp6.instagramclone"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
