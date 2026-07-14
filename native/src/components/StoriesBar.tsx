@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import Svg, { Path, Circle } from 'react-native-svg';
 import { Story } from '../types/types';
 
 interface StoriesBarProps {
@@ -60,7 +60,12 @@ export default function StoriesBar({ stories, ownStory }: StoriesBarProps) {
           {/* Botón "+" para agregar story propia */}
           {isOwnStory && (
             <View style={styles.addButtonContainer}>
-              <Ionicons name="add-circle" size={20} color="#0095F6" />
+              <Svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#0095F6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <Path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <Circle cx="12" cy="12" r="9" />
+                <Path d="M9 12h6" />
+                <Path d="M12 9v6" />
+              </Svg>
             </View>
           )}
         </View>
