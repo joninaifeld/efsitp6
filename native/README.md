@@ -7,7 +7,7 @@
 - Escanear el QR con la app Expo Go en el celular, o presionar `a` para el emulador de Android.
 
 ## Figmas utilizados de inspiración en los diseños:
-- Feed y general: https://www.figma.com/community/file/1004033523744290376/instagram-modern-web-design
+- Feed y general: https://www.figma.com/design/A3Iijhk81wCoqS77adwOpK/Free-Instagram-UI-Mockups-2023--Community-?node-id=2-2&p=f&t=hFaUygXvnwtdl4tz-0 
 - Perfil: capturas de referencia del mockup de Instagram dark mode adjuntadas en la entrega
 
 ## Cómo organizamos el proyecto

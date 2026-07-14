@@ -79,7 +79,7 @@ export default function PostCard({ data, onPress }: PostCardProps) {
         <Image
           source={{ uri: data.postImage }}
           style={styles.postImage}
-          resizeMode="cover"
+          resizeMode="contain"
         />
       </TouchableOpacity>
 
@@ -197,8 +197,8 @@ const styles = StyleSheet.create({
   // ── Imagen del post ────────────────────────────────────
   postImage: {
     width: SCREEN_WIDTH,
-    // Relación de aspecto 1:1 para mantener el cuadrado de Instagram
-    height: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 0.75,
+    backgroundColor: '#111111',
   },
 
   // ── Barra de acciones ──────────────────────────────────

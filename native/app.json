@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
+    "scheme": "efsitp6",
     "splash": {
       "backgroundColor": "#000000",
       "resizeMode": "contain"
@@ -20,7 +21,8 @@
       "package": "com.efsitp6.instagramclone"
     },
     "web": {
-      "bundler": "metro"
+      "bundler": "metro",
+      "output": "single"
     }
   }
 }

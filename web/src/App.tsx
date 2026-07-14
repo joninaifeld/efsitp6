@@ -21,52 +21,56 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
-            const responseForPosts = await caasApi.get('/images/search?limit=10')
-            const dataForPosts = responseForPosts.data || []
+            try {
+                const responseForPosts = await caasApi.get('/images/search?limit=10')
+                const dataForPosts = responseForPosts.data || []
 
-            const responseForUsers = await caasApi.get('/images/search?limit=10')
-            const dataForUsers = (responseForUsers.data || [])?.filter((item: any) => !item.url.endsWith('.gif'))
+                const responseForUsers = await caasApi.get('/images/search?limit=10')
+                const dataForUsers = (responseForUsers.data || [])?.filter((item: any) => !item.url.endsWith('.gif'))
 
-            const responseForComments = await commsApi.get('/comments?limit=10')
-            const dataForComments = responseForComments?.data?.comments
+                const responseForComments = await commsApi.get('/comments?limit=10')
+                const dataForComments = responseForComments?.data?.comments
 
-            const fetchedUsers: FetchedUser[] = dataForUsers?.map((item: any, index: number) => ({
-                username: dataForComments[index]?.user?.username || `user_name_${index}`,
-                userImage: item.url
-            })) || []
+                const fetchedUsers: FetchedUser[] = dataForUsers?.map((item: any, index: number) => ({
+                    username: dataForComments[index]?.user?.username || `user_name_${index}`,
+                    userImage: item.url
+                })) || []
 
-            const fetchedComments: Comment[] = dataForComments.map((item: any, index: number) => ({
-                text: item.body,
-                username: item.user.username,
-                likes: item.likes,
-                userImage: fetchedUsers[index] ? fetchedUsers[index].userImage : dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url
-            })) || []
+                const fetchedComments: Comment[] = dataForComments.map((item: any, index: number) => ({
+                    text: item.body,
+                    username: item.user.username,
+                    likes: item.likes,
+                    userImage: fetchedUsers[index] ? fetchedUsers[index].userImage : dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url
+                })) || []
 
-            const fetchedPosts: PostType[] = dataForPosts?.map((item: any) => {
-                const user: FetchedUser = fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || { username: `user_name`, userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url }
-                return {
-                    username: user.username,
-                    userImage: user.userImage,
-                    postImage: item.url,
-                    caption: `miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu`,
-                    likes: Math.floor(Math.random() * 1000),
-                    comments: fetchedComments,
-                    year: `${Math.floor(Math.random() * 5) + 2019}`
-                }
+                const fetchedPosts: PostType[] = dataForPosts?.map((item: any) => {
+                    const user: FetchedUser = fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || { username: `user_name`, userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url }
+                    return {
+                        username: user.username,
+                        userImage: user.userImage,
+                        postImage: item.url,
+                        caption: `miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu miaouu miaouumiaouu`,
+                        likes: Math.floor(Math.random() * 1000),
+                        comments: fetchedComments,
+                        year: `${Math.floor(Math.random() * 5) + 2019}`
+                    }
                 }) || []
-            
-            const fetchedStories = fetchedUsers?.map((user: any) => {
-                // const user: FetchedUser = fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || { username: `user_name`, userImage: dataForUsers[Math.floor(Math.random() * dataForUsers.length)].url }
-                return {
-                    username: user.username,
-                    userImage: user.userImage,
-                    isCloseFriend: Math.random() > 0.7
-                }
-            }) || []
+                
+                const fetchedStories = fetchedUsers?.map((user: any) => {
+                    return {
+                        username: user.username,
+                        userImage: user.userImage,
+                        isCloseFriend: Math.random() > 0.7
+                    }
+                }) || []
 
-            setPosts(fetchedPosts)
-            setStories(fetchedStories)
-            setLoading(false)
+                setPosts(fetchedPosts)
+                setStories(fetchedStories)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            } finally {
+                setLoading(false)
+            }
         }
         fetchData()
     }, [])

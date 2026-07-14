@@ -6,12 +6,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootNavigator from './src/navigation/RootNavigator';
 
 // Mantiene el splash screen visible hasta que la app esté lista
-SplashScreen.preventAutoHideAsync();
+// En web puede fallar silenciosamente, así que lo envolvemos en try/catch
+try {
+  SplashScreen.preventAutoHideAsync();
+} catch (_) {}
 
 export default function App() {
   useEffect(() => {
     // Oculta el splash screen una vez que el componente montó
-    SplashScreen.hideAsync();
+    SplashScreen.hideAsync().catch(() => {});
   }, []);
 
   return (

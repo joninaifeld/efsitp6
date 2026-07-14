@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   postImage: {
     width: '100%',
-    height: 400,
+    height: 280,
     backgroundColor: '#1A1A1A',
   },
 
