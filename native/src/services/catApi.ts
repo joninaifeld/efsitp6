@@ -3,56 +3,40 @@ import { PostType, Comment, Story } from '../types/types';
 import { generateUniqueId } from '../utils/helpers';
 import { mockLocations } from '../data/defaultUser';
 
-/**
- * Cliente de Axios para TheCatAPI — igual al caasApi del proyecto web.
- * Trae imágenes de gatos para posts y avatares.
- */
+// cliente para traer imágenes de gatos
 const caasApi = axios.create({
   baseURL: 'https://api.thecatapi.com/v1',
 });
 
-/**
- * Cliente de Axios para DummyJSON — igual al commsApi del proyecto web.
- * Trae comentarios simulados.
- */
+// cliente para traer comentarios simulados
 const commsApi = axios.create({
   baseURL: 'https://dummyjson.com',
 });
 
-/**
- * Obtiene los datos del feed: posts, usuarios y comentarios.
- * Replica exactamente el mismo flujo de fetchData() del App.tsx web:
- *
- * 1. GET /images/search?limit=10  → imágenes para los posts
- * 2. GET /images/search?limit=10  → imágenes para avatares de usuarios (filtrando .gif)
- * 3. GET /comments?limit=10       → comentarios de DummyJSON
- * 4. Mapea todo en PostType[]
- *
- * @returns Promise<PostType[]> — array de al menos 10 posts
- */
+// trae posts combinando imágenes de gatos con usuarios y comentarios de APIs externas
 export async function fetchPosts(limit: number = 10): Promise<PostType[]> {
   try {
-    // 1. Imágenes para los posts
+    // imágenes para los posts
     const responseForPosts = await caasApi.get(`/images/search?limit=${limit}`);
     const dataForPosts = responseForPosts.data || [];
 
-    // 2. Imágenes para avatares — filtrar GIFs igual que en el web
+    // imágenes para avatares, filtrando GIFs
     const responseForUsers = await caasApi.get(`/images/search?limit=${limit}`);
     const dataForUsers = (responseForUsers.data || []).filter(
       (item: any) => !item.url.endsWith('.gif')
     );
 
-    // 3. Comentarios desde DummyJSON
+    // comentarios desde DummyJSON
     const responseForComments = await commsApi.get(`/comments?limit=${limit}`);
     const dataForComments = responseForComments?.data?.comments || [];
 
-    // Mapear usuarios: username desde DummyJSON + imagen de gato
+    // combina username de DummyJSON con imagen de gato
     const fetchedUsers = dataForUsers.map((item: any, index: number) => ({
       username: dataForComments[index]?.user?.username || `user_name_${index}`,
       userImage: item.url,
     }));
 
-    // Mapear comentarios con sus avatares
+    // arma los comentarios con sus avatares
     const fetchedComments: Comment[] = dataForComments.map(
       (item: any, index: number) => ({
         text: item.body,
@@ -65,7 +49,7 @@ export async function fetchPosts(limit: number = 10): Promise<PostType[]> {
       })
     );
 
-    // Construir cada post combinando imagen + usuario aleatorio + comentarios
+    // arma cada post con imagen, usuario aleatorio y comentarios
     const fetchedPosts: PostType[] = dataForPosts.map((item: any) => {
       const randomUser =
         fetchedUsers[Math.floor(Math.random() * fetchedUsers.length)] || {
@@ -99,15 +83,9 @@ export async function fetchPosts(limit: number = 10): Promise<PostType[]> {
   }
 }
 
-/**
- * Obtiene las stories del feed.
- * Reutiliza las mismas imágenes de usuarios que se usan en los posts.
- *
- * @returns Promise<Story[]>
- */
+// trae las stories usando los mismos endpoints que los posts
 export async function fetchStories(limit: number = 10): Promise<Story[]> {
   try {
-    // Mismos endpoints que el web para consistencia
     const responseForUsers = await caasApi.get(`/images/search?limit=${limit}`);
     const dataForUsers = (responseForUsers.data || []).filter(
       (item: any) => !item.url.endsWith('.gif')
@@ -116,6 +94,7 @@ export async function fetchStories(limit: number = 10): Promise<Story[]> {
     const responseForComments = await commsApi.get(`/comments?limit=${limit}`);
     const dataForComments = responseForComments?.data?.comments || [];
 
+    // 30% de chance de ser close friend
     const stories: Story[] = dataForUsers.map((item: any, index: number) => ({
       username:
         dataForComments[index]?.user?.username || `user_name_${index}`,

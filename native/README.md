@@ -1,14 +1,15 @@
-# TP 6 EFSI — Mobile
+# TP06 EFSI—Mobile
 
 ## Instrucciones básicas de ejecución:
-- Realizar los siguientes comandos para ejecutar el proyecto:
+- Realizar los siguientes comandos para ejecutar el proyecto (--legacy-peer-deps es usado para que la versión utilizada de react navigation y expo sean compatibles con la de react):
+    - cd nativen
     - npm install --legacy-peer-deps
     - npx expo start
-- Escanear el QR con la app Expo Go en el celular, presionar `a` para el emulador de Android, o `w` para abrir en el navegador.
+- Para el emulador de Android: Escanear el QR con la app Expo Go en el celular y presionar `a`
+- Para abrir en el navegador: presionar `w`
 
 ## Figmas utilizados de inspiración en los diseños:
 - Feed y general: https://www.figma.com/design/A3Iijhk81wCoqS77adwOpK/Free-Instagram-UI-Mockups-2023--Community-?node-id=2-2&p=f&t=hFaUygXvnwtdl4tz-0
-- Perfil: capturas de referencia del mockup de Instagram dark mode adjuntadas en la entrega
 
 ## Cómo organizamos el proyecto
 - Separamos la app en capas bien definidas: navegación, pantallas, componentes, servicios, datos y tipos.

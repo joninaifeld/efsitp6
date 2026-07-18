@@ -1,9 +1,6 @@
 import { User } from '../types/types';
 
-/**
- * Usuario por defecto del sistema.
- * Contiene los datos del perfil y las publicaciones del usuario logueado.
- */
+// datos del usuario logueado
 export const defaultUser: User = {
   username: 'dami.dami.dami',
   displayName: 'dami',
@@ -146,9 +143,7 @@ export const defaultUser: User = {
   },
 };
 
-/**
- * Lista de localizaciones simuladas para los posts
- */
+// Localidades simuladas para los posts
 export const mockLocations = [
   'Buenos Aires, Argentina',
   'Palermo, CABA',

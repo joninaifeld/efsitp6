@@ -55,7 +55,7 @@ export default function PostDetailScreen() {
       </View>
 
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.keyboardView}>
-        {/* FlatList maneja todo el scroll — comentarios como items, header con imagen y acciones */}
+        {/* FlatList maneja todo el scroll, los comentarios son los items y la imagen va en el header */}
         <FlatList
           data={post.comments}
           keyExtractor={(_, index) => `comment-${index}`}
@@ -116,7 +116,7 @@ export default function PostDetailScreen() {
                 </TouchableOpacity>
               </View>
 
-              {/* ── Likes y caption ── */}
+              {/* likes y caption */}
               <View style={styles.infoSection}>
                 <Text style={styles.likesText}>{getFormattedNumber(likesCount)} Me gusta</Text>
                 <Text style={styles.captionText}>
@@ -127,7 +127,7 @@ export default function PostDetailScreen() {
                 <Text style={styles.timeText}>Hace {post.year}</Text>
               </View>
 
-              {/* ── Título comentarios ── */}
+              {/* sección de comentarios */}
               <View style={styles.commentsSection}>
                 <Text style={styles.commentsTitle}>Comentarios</Text>
                 {post.comments.length === 0 && (

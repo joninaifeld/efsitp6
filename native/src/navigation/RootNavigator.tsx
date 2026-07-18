@@ -4,32 +4,19 @@ import { RootStackParamList } from '../types/types';
 import MainTabs from './MainTabs';
 import PostDetailScreen from '../screens/PostDetailScreen';
 
-/**
- * Stack Navigator principal de la aplicación.
- * 
- * Estructura:
- * - MainTabs: Contiene las pestañas principales (Home, Profile, etc.)
- * - PostDetail: Pantalla modal para ver el detalle de un post
- * 
- * El PostDetail se presenta como modal para simular el comportamiento de Instagram.
- */
+// stack principal de la app
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
-        // Sin header porque cada screen tiene su propio header customizado
         headerShown: false,
       }}
     >
-      {/* Pestañas principales */}
       <Stack.Screen name="MainTabs" component={MainTabs} />
       
-      {/* 
-        Pantalla de detalle de post.
-        Se configura como modal para el efecto de presentación desde abajo.
-      */}
+      {/* pantalla de detalle, se abre como modal desde abajo */}
       <Stack.Screen
         name="PostDetail"
         component={PostDetailScreen}

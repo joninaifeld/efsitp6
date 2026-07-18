@@ -1,6 +1,5 @@
-// ─── Tipos de dominio ───────────────────────────────────────────────────────
+// tipos de dominio
 
-/** Representa un comentario en una publicación */
 export interface Comment {
   text: string;
   username: string;
@@ -8,12 +7,11 @@ export interface Comment {
   likes: number;
 }
 
-/** Representa una publicación del feed */
 export interface PostType {
-  id: string;            // ID único para usar como key en FlatList
+  id: string;
   username: string;
   userImage: string;
-  location: string;      // Localización simulada del post
+  location: string;
   postImage: string;
   caption: string;
   likes: number;
@@ -21,15 +19,13 @@ export interface PostType {
   year: string;
 }
 
-/** Representa una story de la barra superior */
 export interface Story {
   username: string;
   userImage: string;
   isCloseFriend: boolean;
-  isOwn?: boolean;       // true para la story del usuario logueado
+  isOwn?: boolean; // true si es la story del usuario logueado
 }
 
-/** Representa el usuario logueado */
 export interface User {
   username: string;
   displayName: string;
@@ -43,20 +39,15 @@ export interface User {
   story: Story;
 }
 
-// ─── Tipos de parámetros de navegación ────────────────────────────────────────
+// tipos de navegación
 
-/**
- * Define los parámetros que recibe cada ruta del Stack Navigator principal.
- * undefined significa que la ruta no recibe parámetros.
- */
+// parámetros de cada ruta del stack principal
 export type RootStackParamList = {
   MainTabs: undefined;
   PostDetail: { post: PostType };
 };
 
-/**
- * Define las pestañas del Bottom Tab Navigator.
- */
+// pestañas del tab navigator
 export type MainTabParamList = {
   Home: undefined;
   Search: undefined;
